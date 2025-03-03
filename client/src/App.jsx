@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { ProductProvider } from "./components/ProductContext";
 import ProductList from "./components/ProductList"
 import AddProduct from "./components/AddProduct";
 
@@ -11,7 +12,7 @@ function App() {
   const apiUrl = "http://localhost:5000";
 
   return (
-    <>
+    <ProductProvider>
       <div>
         <h1>ร้านค้าสินค้าออนไลน์</h1>
         <AddProduct apiUrl={apiUrl} onProductAdded={() => setRefresh(!refresh)} />
@@ -37,7 +38,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </ProductProvider>
   )
 }
 
